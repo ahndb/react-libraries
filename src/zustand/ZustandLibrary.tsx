@@ -75,7 +75,7 @@ export default function ZustandLibrary() {
 //          render          //
   return (
     <div>
-      <a href="http://localhost:3000">홈으로</a>
+      <a href="http://localhost:3000/router">홈으로</a>
       <div>
         <h4>useState 방식 : {normal}</h4>
         <button onClick={decreaseNormal}>-</button>
