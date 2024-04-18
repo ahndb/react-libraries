@@ -30,10 +30,15 @@ export default function ReactCookieLibrary() {
   const onRegistButtonClickHandler = () => {
     const now = new Date();
     now.setSeconds(now.getSeconds() + 10);
+    //* setCookie 함수는 첫번째 매개변수로 name값/ 두번째 매개변수로 value값 / 세번째 매개변수로 option 지정
+    //* option: 
+    // - path : 쿠키를 사용할 수 있는 경로
+    // - expires : 쿠키 만료 기간
     setCookie(key, value, { path: '/', expires: now });
   };
 
   const onRemoveButtonClickHandler = () => {
+    // removeCookie 함수는 첫번째 매개변수로 name 값/ 두번째 매개변수로 option 지정
     removeCookie(key, { path: '/' });
   };
 
