@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
 import { create } from 'zustand';
 
 // zustand 패키지(라이브러리) : 
@@ -75,14 +76,15 @@ export default function ZustandLibrary() {
 //          render          //
   return (
     <div>
-      <a href="http://localhost:3000/router">홈으로</a>
+      {/* <a href="http://localhost:3000/router">홈으로</a> */}
+      <Link to='/router'>홈으로</Link>
       <div>
         <h4>useState 방식 : {normal}</h4>
         <button onClick={decreaseNormal}>-</button>
         <button onClick={increaseNormal}>+</button>
       </div>
       <div>
-        <h4>useState 방식 : {zNormal}</h4>
+        <h4>zustand 방식 : {zNormal}</h4>
         <button onClick={decreaseZNormal}>-</button>
         <button onClick={increaseZNormal}>+</button>
       </div>
