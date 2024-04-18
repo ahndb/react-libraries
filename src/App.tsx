@@ -15,7 +15,8 @@ function App() {
 
       <Route path='/router' element={<Layout />}>
         <Route index element={<ReactRouterLibrary />} />
-        <Route path='page1' element={<ReactRouterPage1 />} />
+        {/* /:value 하면 뒤에오는 데이터를 받을 수 있음 */}
+        <Route path='page1/:value' element={<ReactRouterPage1 />} />
         <Route path='page2' element={<ReactRouterPage2 />} />
       </Route>
       <Route path='/zustand' element={<ZustandLibrary />} />
@@ -26,3 +27,6 @@ function App() {
 }
 
 export default App;
+
+
+// react-cookie : React에서 쿠키관리를 수월하게하는 라이브러리
