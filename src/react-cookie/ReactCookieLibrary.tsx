@@ -1,11 +1,50 @@
-import React from 'react'
+import React, { ChangeEvent, useState } from 'react'
+import { useCookies } from 'react-cookie'
 
-//! react-cookie : 
+//! react-cookie 패키지(라이브러리) : 
 //? React에서 쿠키관리를 수월하게하는 라이브러리
-// npm i react-cookie
+//? npm i react-cookie
+
+//* - react에서 쿠키를 쉽게 관리할 수 있도록 도움을 주는 라이브러리
+//* - 쿠키 설정, 검색, 삭제를 간단한 함수로 작업할 수 있도록 함
 
 export default function ReactCookieLibrary() {
+
+  // useCookies 훅 함수로 쿠키 객체, 쿠키 지정 함수, 쿠키 삭제 함수를 배열로 반환 받음 
+  const [cookies, setCookie, removeCookie] = useCookies();
+  const [key, setKey] = useState<string>('');
+  const [value, setValue] = useState<string>('');
+  
+  const onKeyChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
+    setKey(event.target.value);
+  };
+
+  const onValueChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
+    setValue(event.target.value);
+  };
+
+  const onButtonClickHandler = () => {
+    console.log(cookies);
+  };
+
+  const onRegistButtonClickHandler = () => {
+    const now = new Date();
+    now.setSeconds(now.getSeconds() + 10);
+    setCookie(key, value, { path: '/', expires: now });
+  };
+
+  const onRemoveButtonClickHandler = () => {
+    removeCookie(key, { path: '/' });
+  };
+
+
   return (
-    <div>ReactCookieLibrary</div>
+    <div>
+      <input type="text" onChange={onKeyChangeHandler} value={key} />
+      <input type="text" onChange={onValueChangeHandler} value={value} />
+      <button onClick={onButtonClickHandler}>쿠키 확인</button>
+      <button onClick={onRegistButtonClickHandler}>쿠키 등록</button>
+      <button onClick={onRemoveButtonClickHandler}>쿠키 삭제</button>
+    </div>
   )
 }
