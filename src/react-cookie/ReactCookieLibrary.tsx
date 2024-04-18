@@ -24,6 +24,7 @@ export default function ReactCookieLibrary() {
   };
 
   const onButtonClickHandler = () => {
+    // cookies 객체는 브라우저가 가지고 있는 쿠키 정보를 객체로 가져옴
     console.log(cookies);
   };
 
